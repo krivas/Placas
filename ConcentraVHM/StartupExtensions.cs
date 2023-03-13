@@ -24,7 +24,7 @@ namespace ConcentraVHM
             var configuration = builder.Configuration;
             var audience = configuration["JwtSettings:Audience"];
             var issuer = configuration["JwtSettings:Issuer"];
-            var key = configuration["JwtSettings:Audience"];
+            var key = configuration["JwtSettings:Key"];
             // Adding Authentication
             builder.Services.AddAuthentication(options =>
             {
