@@ -4,6 +4,7 @@ using ConcentraVHM.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConcentraVHM.Infrastructure.Migrations
 {
     [DbContext(typeof(ConcentraVHMContext))]
-    partial class ConcentraVHMContextModelSnapshot : ModelSnapshot
+    [Migration("20230313141116_JwtToken")]
+    partial class JwtToken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

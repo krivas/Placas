@@ -27,6 +27,8 @@ namespace ConcentraVHM.Application
             services.AddMediatR(typeof(UpdatePlacaCommandHandler).Assembly);
             services.AddMediatR(typeof(DeletePlacaCommandHandler).Assembly);
             services.AddMediatR(typeof(GetPlacasQueryHandler).Assembly);
+
+
             return services;
 		}
 	}

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Xml;
 using ConcentraVHM.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 
 namespace ConcentraVHM.Infrastructure.Context
 {
-	public class ConcentraVHMContext : DbContext
-	{
+	public class ConcentraVHMContext : IdentityDbContext<IdentityUser>
+    {
         public ConcentraVHMContext(DbContextOptions<ConcentraVHMContext> options)
           : base(options)
         {

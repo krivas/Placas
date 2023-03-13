@@ -2,6 +2,7 @@
 using ConcentraVHM.Domain.Entities;
 using ConcentraVHM.Infrastructure.Context;
 using ConcentraVHM.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +18,9 @@ namespace ConcentraVHM.Infrastructure
             services.AddScoped<IBatchRepository<Placa>, PlacaRepository>();
             services.AddScoped<ISearch<Placa>, PlacaRepository>();
             services.AddDbContext<ConcentraVHMContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            
+    
+
+
         }
     }
 }
