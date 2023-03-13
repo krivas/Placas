@@ -31,6 +31,8 @@
   <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="ClientApp\src\Models\" />
+    <None Remove="ClientApp\src\Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConcentraVHM.Domain\ConcentraVHM.Domain.csproj">
@@ -42,6 +44,10 @@
     <ProjectReference Include="..\ConcentraVHM.Infrastructure\ConcentraVHM.Infrastructure.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientApp\src\Models\" />
+    <Folder Include="ClientApp\src\Services\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

@@ -34,7 +34,13 @@ namespace ConcentraVHM.Infrastructure.Repositories
         }
         public async Task<bool> ExistsAsync(object id)
         {
-            return await _context.Set<T>().FindAsync(id) != null;
+            var entity = await _context.Set<T>().FindAsync(id);
+            if (entity != null)
+            {
+                _context.Entry(entity).State = EntityState.Detached;
+                return true;
+            }
+            return false;
         }
 
         public async Task<T> FindByColumn(Expression<Func<T, bool>> predicate)
@@ -46,6 +52,8 @@ namespace ConcentraVHM.Infrastructure.Repositories
         {
             return await _context.Set<T>().ToListAsync();
         }
+
+      
     }
 }
 

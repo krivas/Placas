@@ -27,11 +27,11 @@ namespace ConcentraVHM.Controllers
 
         // GET: api/values
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> Get([FromQuery] GetPlacasQuery query)
         {
             try
             {
-                var response = await _mediator.Send(new GetPlacasQuery());
+                var response = await _mediator.Send(query);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -41,12 +41,7 @@ namespace ConcentraVHM.Controllers
 
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        
 
         // POST api/values
         [HttpPost]
@@ -73,12 +68,11 @@ namespace ConcentraVHM.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put([FromRoute] string id, [FromBody] UpdatePlacaCommand request)
+        [HttpPut]
+        public async Task<ActionResult> Put( [FromBody] UpdatePlacaCommand request)
         {
             try
             {
-                request.Id = id;
                 var response = await _mediator.Send(request);
                 return NoContent();
             }
@@ -88,7 +82,7 @@ namespace ConcentraVHM.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error");
+                return StatusCode(500, ex.Message);
             }
 
         }

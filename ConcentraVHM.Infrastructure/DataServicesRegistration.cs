@@ -15,6 +15,7 @@ namespace ConcentraVHM.Infrastructure
             services.AddTransient<IRepository<Cliente>, ClienteRepository>();
             services.AddTransient<IRepository<Placa>, PlacaRepository>();
             services.AddScoped<IBatchRepository<Placa>, PlacaRepository>();
+            services.AddScoped<ISearch<Placa>, PlacaRepository>();
             services.AddDbContext<ConcentraVHMContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             
         }

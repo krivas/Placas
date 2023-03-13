@@ -28,6 +28,8 @@ namespace ConcentraVHM.Application.Features.Clientes.Commands.DeleteCliente
                 throw new Exceptions.ValidationException(validationResult);
 
             var cliente = _mapper.Map<Cliente>(request);
+            var exists=await _clienteRepository.ExistsAsync(cliente.Cedula);
+            if (exists)
             await _clienteRepository.Delete(cliente);
             return Unit.Value;
         }

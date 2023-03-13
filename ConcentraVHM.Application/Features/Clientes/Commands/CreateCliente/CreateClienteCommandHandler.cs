@@ -27,6 +27,10 @@ namespace ConcentraVHM.Application.Features.Clientes.Commands.CreateCliente
                 throw new Exceptions.ValidationException(validationResult);
 
             var cliente = _mapper.Map<Cliente>(request);
+            var exists = await _clienteRepository.ExistsAsync(cliente.Cedula);
+                if (exists)
+                 throw new Exceptions.ExistsException("Cliente","Cedula");
+                else
                 cliente = await _clienteRepository.Create(cliente);
 
             return cliente.Cedula;

@@ -7,8 +7,9 @@ namespace ConcentraVHM.Domain.Entities
         public int Id { get; set; }
         public TipoAutoMovil TipoAutoMovil { get; set; }
         public Cliente Cliente { get; set; }
+        public DateTime Fecha { get; set; }
 
-        
+
     }
 }
 

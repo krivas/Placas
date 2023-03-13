@@ -82,6 +82,9 @@ namespace ConcentraVHM.Infrastructure.Migrations
                     b.Property<string>("ClienteCedula")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("TipoAutoMovilId")
                         .HasColumnType("int");
 

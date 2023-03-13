@@ -44,13 +44,7 @@ namespace ConcentraVHM.Controllers
             
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
+       
         // POST api/values
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CreateClienteCommand request)
@@ -63,6 +57,10 @@ namespace ConcentraVHM.Controllers
             catch (ValidationException ex)
             {
                 return BadRequest(ex.ValidationErrors);
+            }
+            catch (ExistsException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {

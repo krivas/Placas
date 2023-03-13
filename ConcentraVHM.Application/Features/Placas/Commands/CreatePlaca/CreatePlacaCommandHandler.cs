@@ -45,7 +45,7 @@ namespace ConcentraVHM.Application.Features.Placas.Commands.CreatePlaca
             public MappingProfile()
             {
 
-                CreateMap<PlacaDto, Placa>()
+                CreateMap<PlacaInputDto, Placa>()
                 .ForMember(dest => dest.TipoAutoMovil, opt => opt.MapFrom(src => new TipoAutoMovil
                 {
                     Tipo = src.TipoAutoMovil,
@@ -70,7 +70,7 @@ namespace ConcentraVHM.Application.Features.Placas.Commands.CreatePlaca
             }
         }
 
-        public class PlacaValidator : AbstractValidator<PlacaDto>
+        public class PlacaValidator : AbstractValidator<PlacaInputDto>
         {
             public PlacaValidator()
             {

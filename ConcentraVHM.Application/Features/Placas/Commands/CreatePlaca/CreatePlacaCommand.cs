@@ -5,7 +5,7 @@ namespace ConcentraVHM.Application.Features.Placas.Commands
 {
 	public class CreatePlacaCommand :IRequest
 	{
-       public PlacaDto[] Placas { get; set; }
+       public PlacaInputDto[] Placas { get; set; }
     }
 }
 

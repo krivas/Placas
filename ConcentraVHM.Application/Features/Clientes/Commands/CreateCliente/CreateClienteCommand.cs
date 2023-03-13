@@ -10,7 +10,6 @@ namespace ConcentraVHM.Application.Features.Clientes.Commands.CreateCliente
         public string Cedula { get; set; }
         public string FechaNacimiento { get; set; }
         public char TipoPersona { get; set; }
-        public int Id { get; set; }
     }
 
 }
