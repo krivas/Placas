@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Features\" />
+    <None Remove="Features\Clientes\" />
+    <None Remove="Features\Clientes\Commands\" />
+    <None Remove="Features\Placas\" />
+    <None Remove="Features\Placas\Commands\" />
+    <None Remove="Features\Search\" />
+    <None Remove="Features\Search\Queries\" />
+    <None Remove="Features\Placas\Queries\" />
+    <None Remove="Features\Clientes\Queries\" />
+    <None Remove="MediatR" />
+    <None Remove="MediatR.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="AutoMapper" />
+    <None Remove="Features\Clientes\Commands\CreateCliente\" />
+    <None Remove="Features\Clientes\Commands\DeleteCliente\" />
+    <None Remove="Features\Clientes\Queries\GetClientes\" />
+    <None Remove="Features\Placas\Queries\GetPlacas\" />
+    <None Remove="Features\Placas\Commands\CreatePlaca\" />
+    <None Remove="Features\Placas\Commands\DeletePlaca\" />
+    <None Remove="Exceptions\" />
+    <None Remove="Features\Placas\Commands\UpdatePlaca\" />
+    <None Remove="Features\Clientes\Commands\UpdateClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Features\Clientes\" />
+    <Folder Include="Features\Clientes\Commands\" />
+    <Folder Include="Features\Placas\" />
+    <Folder Include="Features\Placas\Commands\" />
+    <Folder Include="Features\Search\" />
+    <Folder Include="Features\Search\Queries\" />
+    <Folder Include="Features\Placas\Queries\" />
+    <Folder Include="Features\Clientes\Queries\" />
+    <Folder Include="Features\Clientes\Commands\CreateCliente\" />
+    <Folder Include="Features\Clientes\Commands\DeleteCliente\" />
+    <Folder Include="Features\Clientes\Queries\GetClientes\" />
+    <Folder Include="Features\Placas\Queries\GetPlacas\" />
+    <Folder Include="Features\Placas\Commands\CreatePlaca\" />
+    <Folder Include="Features\Placas\Commands\DeletePlaca\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Features\Placas\Commands\UpdatePlaca\" />
+    <Folder Include="Features\Placas\Commands\UpdatePlaca\" />
+    <Folder Include="Features\Clientes\Commands\UpdateClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConcentraVHM.Infrastructure\ConcentraVHM.Infrastructure.csproj" />
+    <ProjectReference Include="..\ConcentraVHM.Domain\ConcentraVHM.Domain.csproj" />
+  </ItemGroup>
+</Project>
