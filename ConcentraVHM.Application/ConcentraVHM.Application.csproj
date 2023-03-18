@@ -28,6 +28,8 @@
     <None Remove="Exceptions\" />
     <None Remove="Features\Placas\Commands\UpdatePlaca\" />
     <None Remove="Features\Clientes\Commands\UpdateClient\" />
+    <None Remove="Features\User\" />
+    <None Remove="Features\User\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\" />
@@ -49,6 +51,8 @@
     <Folder Include="Features\Placas\Commands\UpdatePlaca\" />
     <Folder Include="Features\Placas\Commands\UpdatePlaca\" />
     <Folder Include="Features\Clientes\Commands\UpdateClient\" />
+    <Folder Include="Features\User\" />
+    <Folder Include="Features\User\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />

@@ -12,9 +12,9 @@ namespace ConcentraVHM.Application.Features.Placas.Queries.GetPlacas
 	public class GetPlacasQueryHandler : IRequestHandler<GetPlacasQuery,IEnumerable<PlacaDto>>
     {
         private readonly IMapper _mapper;
-        private readonly ISearch<Placa> _searchPlacas;
+        private readonly IRepository<Placa> _searchPlacas;
 
-        public GetPlacasQueryHandler(ISearch<Placa> searchPlacas, IMapper mapper)
+        public GetPlacasQueryHandler(IRepository<Placa> searchPlacas, IMapper mapper)
         {
             _mapper = mapper;
             _searchPlacas = searchPlacas;
@@ -22,7 +22,7 @@ namespace ConcentraVHM.Application.Features.Placas.Queries.GetPlacas
 
         public async Task<IEnumerable<PlacaDto>> Handle(GetPlacasQuery request, CancellationToken cancellationToken)
         {
-            var placas=await _searchPlacas.GetQuery(request.Cedula);
+            var placas=await _searchPlacas.GetAll();
             return _mapper.Map<PlacaDto[]>(placas);
 
 

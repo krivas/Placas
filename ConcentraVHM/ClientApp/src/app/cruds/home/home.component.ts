@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit , Inject} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { ClienteService } from '../../Services/ClientService';
-import { Cliente } from '../../Models/Cliente';
+import { ClienteService } from '../../../Services/ClientService';
+import { Cliente } from '../../../Models/Cliente';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit{
  
 items:Cliente[]=[];
   displayError: string = "";
-  cliente: Cliente = {  nombre: "", apellido: "", cedula: "", fechaNacimiento: undefined ,tipoPersona:undefined};
+  cliente: Cliente = {  nombre: "", apellido: "", cedula: "", fechaNacimiento: "" ,tipoPersona:undefined};
   
   constructor(private clientService:ClienteService) {
   
@@ -38,15 +38,19 @@ items:Cliente[]=[];
       this.clientService.addCliente(this.cliente)
         .subscribe(response => {
           console.log(response);
-          this.cliente = {  nombre: "", apellido: "", cedula: "", fechaNacimiento: undefined ,tipoPersona:undefined};
+          this.cleanForm();
           form.resetForm();
           this.loadItems();
         }, error => {
           console.error(error);
-          this.displayError = error.message;
+          this.displayError = error.error;
         });
     }
     
+  }
+  cleanForm()
+  {
+    this.cliente = {  nombre: "", apellido: "", cedula: "", fechaNacimiento: "",tipoPersona:undefined};
   }
   delete(cliente: Cliente, index: number) {
     this.clientService.deleteCliente(cliente.cedula)
@@ -60,11 +64,29 @@ items:Cliente[]=[];
         }
       );
   }
+
   edit(cliente: Cliente) {
-    this.cliente=cliente;
-    this.cliente.fechaNacimiento=undefined;
+   
+    const date=cliente.fechaNacimiento;
+    const dateSubstring = date.substring(0, date.indexOf('T'));
+    this.cliente={  nombre: cliente.nombre, apellido: cliente.apellido, cedula: cliente.cedula, fechaNacimiento: dateSubstring ,tipoPersona:cliente.tipoPersona};
   }
 
+  editarCliente(form: NgForm)
+  {
+    if (form.valid) {
+      this.clientService.updateCliente(this.cliente)
+        .subscribe(response => {
+          console.log(response);
+          this.cleanForm();
+          form.resetForm();
+          this.loadItems();
+        }, error => {
+          console.error(error);
+          this.displayError = error.error;
+        });
+     }
+  }
 }
 
 

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Azure;
 using ConcentraVHM.Domain.DTOs;
 using ConcentraVHM.Domain.Entities;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +19,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ConcentraVHM.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
+    
     public class SecurityController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -32,7 +36,7 @@ namespace ConcentraVHM.Controllers
         }
 
         [HttpPost]
-        [Route("login")]
+       [Route("login")]
         public async Task<IActionResult> Login([FromBody] User model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
@@ -76,6 +80,14 @@ namespace ConcentraVHM.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "User creation failed! Please check user details and try again." );
 
             return Ok("User created successfully!");
+        }
+
+        [HttpPost]
+        [Route("logout")]
+        public async Task<IActionResult>Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Ok();
         }
 
 

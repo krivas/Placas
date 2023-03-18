@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConcentraVHM.Infrastructure.Repositories
 {
-    public class PlacaRepository : BaseRepository<Placa>,IBatchRepository<Placa> ,ISearch<Placa>
+    public class PlacaRepository : BaseRepository<Placa>,IBatchRepository<Placa> 
     {
         private readonly ConcentraVHMContext _context;
 

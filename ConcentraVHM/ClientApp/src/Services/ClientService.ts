@@ -21,7 +21,7 @@ export class ClienteService {
   }
 
   updateCliente(cliente: Cliente): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${cliente.cedula}`, cliente);
+    return this.http.put<any>(`${this.apiUrl}`, cliente);
   }
 
   deleteCliente(cedula: string): Observable<any> {

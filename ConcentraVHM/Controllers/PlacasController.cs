@@ -8,13 +8,16 @@ using ConcentraVHM.Application.Features.Placas.Commands.DeletePlaca;
 using ConcentraVHM.Application.Features.Placas.Commands.UpdatePlaca;
 using ConcentraVHM.Application.Features.Placas.Queries.GetPlacas;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ConcentraVHM.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class PlacasController : Controller
     {
         private readonly IMediator _mediator;
@@ -27,6 +30,7 @@ namespace ConcentraVHM.Controllers
 
         // GET: api/values
         [HttpGet]
+        
         public async Task<ActionResult> Get([FromQuery] GetPlacasQuery query)
         {
             try

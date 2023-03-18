@@ -11,6 +11,7 @@ using ConcentraVHM.Application.Features.Clientes.Commands.DeleteCliente;
 using ConcentraVHM.Application.Features.Clientes.Commands.UpdateClient;
 using ConcentraVHM.Application.Features.Clientes.Queries.GetClientes;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -18,7 +19,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConcentraVHM.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class ClientesController : Controller
     {
         private readonly IMediator _mediator;

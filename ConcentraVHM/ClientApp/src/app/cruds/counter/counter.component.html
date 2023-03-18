@@ -1,0 +1,36 @@
+<app-nav-menu ></app-nav-menu>
+<div class="container">
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Cédula</th>
+          <th>Fecha de nacimiento</th>
+          <th>Tipo de Persona</th>
+          <th>Valor por placa</th>
+          <th>Placa</th>
+          <th>TipoAutomovil</th>
+          <th>Fecha de compra</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.cliente.nombre}}</td>
+          <td>{{ item.cliente.apellido }}</td>
+          <td>{{ item.cliente.cedula }}</td>
+          <td>{{ item.cliente.fechaNacimiento }}</td>
+          <td>{{ item.cliente.tipoPersona }}</td>
+          <td>{{ item.valor }}</td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.tipoAutoMovil }}</td>
+          <td>{{ item.fecha}}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+</div>
+
+
+ 
